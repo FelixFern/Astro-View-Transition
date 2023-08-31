@@ -19,8 +19,10 @@ const { title } = Astro.props;
 		<title>{title}</title>
 		<ViewTransitions />
 	</head>
-	<body class="container mx-auto my-8" transition:animate="slide">
-		<h1 class="font-bold text-4xl my-4">Fake Store Astro</h1>
+	<body class="container mx-auto my-8" transition:animate="initial">
+		<h1 class="font-bold text-4xl my-4" transition:animate="none">
+			Fake Store Astro
+		</h1>
 		<slot />
 	</body>
 </html>

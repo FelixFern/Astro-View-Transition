@@ -10,9 +10,21 @@ const data = await response.json();
 <Layout title=`Product Details ID: ${id}`>
 	<a href="/" class="font-bold text-blue-500">&lt; Back</a>
 	<div class="mt-6">
-		<img src={data.image} class="w-auto h-[250px] object-cover" />
-		<h1 class="text-2xl font-bold mt-8">{data.title}</h1>
-		<div class="flex items-center mt-2.5 mb-5">
+		<img
+			src={data.image}
+			class="w-auto h-[250px] object-cover"
+			transition:name=`product-img-id-${id}`
+		/>
+		<h5
+			class="text-2xl font-bold mt-8"
+			transition:name=`product-title-id-${id}`
+		>
+			{data.title}
+		</h5>
+		<div
+			class="flex items-center mt-2.5 mb-5"
+			transition:name=`product-rating-id-${id}`
+		>
 			{
 				Array(Math.floor(data.rating.rate))
 					.fill(0)
@@ -48,6 +60,10 @@ const data = await response.json();
 				>{data.rating.rate}</span
 			>
 		</div>
+		<span
+			class="text-3xl font-bold text-gray-900"
+			transition:name=`product-price-id-${id}`>${data.price}</span
+		>
 		<p>{data.description}</p>
 	</div>
 </Layout>
